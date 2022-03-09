@@ -49,6 +49,14 @@ if($_SESSION['contador'] <= $total){
                 }
             </script>
             <style>
+                @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+                * {
+                    font-family: 'Lato', sans-serif;
+                    font-weight: 700;
+
+                    margin-top: 0;
+                    margin-bottom: 0;
+                }
                 .Grupo1{text-align: center;}
                 .Grupo2{text-align: center;}
                 .Grupo3{text-align: center;}
@@ -64,13 +72,13 @@ if($_SESSION['contador'] <= $total){
             function getPDF(){
                 $("#downloadbtn").hide();
                 $("#genmsg").show();
-                var HTML_Width = 2480;
-                var HTML_Height = 3508;
-                var top_left_margin = 15;
+                var HTML_Width =  690;
+                var HTML_Height = 930;
+                var top_left_margin = 35;
                 var PDF_Width = HTML_Width+(top_left_margin*2);
-                var PDF_Height = (PDF_Width*1.2);
-                var canvas_image_width = 2480;
-                var canvas_image_height = 2920;
+                var PDF_Height = (PDF_Width*1.2)+(top_left_margin*2);
+                var canvas_image_width = HTML_Width;
+                var canvas_image_height = HTML_Height;
                 
                 var totalPDFPages = 0;
                 
@@ -104,23 +112,24 @@ if($_SESSION['contador'] <= $total){
             </script>
         </head>
         <body style="display: flex;flex-direction: column;align-items: center;">
-            <div style="width: 57%; height: 95vh; display: flex; justify-content: space-around; aling-item: center; flex-direction: column;" class="canvas_div_pdf">
+            <div style="width: 690px; height: 920px; display: flex; justify-content: space-around; aling-item: center; flex-direction: column;" class="canvas_div_pdf">
                 <div class="Grupo1">
+                    <img src="./imgParaiba.png" width="450px" height="auto" alt="header">
                     <p>SECRETARIA DE ESTADO DA EDUCAÇÃO E DA CIÊNCIA E TECNOLOGIA</p>
                     <p><span id="nomeGestor"></span>ª GERÊNCIA REGIONAL DE EDUCAÇÃO</p>
-                    <span id="nomeEscola1"></span>
+                    <span style="color: red" id="nomeEscola1"></span>
                 </div>
                 <div class="Grupo2">
                     <p>DECLARAÇÃO DE VÍNCULO ESCOLAR</p>
                 </div>
                 <div class="Grupo3">
-                    <p>Declaramos para os devidos fins que se fizerem necessários, que <span id="nomeAluno"></span>, é estudante regularmente matriculado na Rede Estadual de Ensino, na escola <span id="nomeEscola3"></span>, para o ano letivo de 2022. </p>
+                    <p>Declaramos para os devidos fins que se fizerem necessários, que <span style="color: red" id="nomeAluno"></span>, é estudante regularmente matriculado na Rede Estadual de Ensino, na escola <span style="color: red" id="nomeEscola3"></span>, para o ano letivo de 2022. </p>
                 </div>
                 <div class="Grupo4">
-                    <p><span id="nomeCidadeEstado"></span>-PB, 0<span id="nomeDia"></span> de março de 2022</p>
+                    <p><span style="color: red" id="nomeCidadeEstado"></span><span style="color: red">-PB</span>, 0<span id="nomeDia"></span> de março de 2022</p>
                 </div>
                 <div class="Grupo5">
-                    <p>Direção<br> <span id="nomeDiretor"></span></p>
+                    <p>Direção<br> <span style="color: red" id="nomeDiretor"></span></p>
                     
                 </div>
             </div>
