@@ -129,7 +129,7 @@ if($_SESSION['contador'] <= $total){
                     <p><span style="color: red" id="nomeCidadeEstado"></span><span style="color: red">-PB</span>, 0<span id="nomeDia"></span> de março de 2022</p>
                 </div>
                 <div class="Grupo5">
-                    <p>Direção<br> <span style="color: red" id="nomeDiretor"></span></p>
+                    <p> <span style="color: red" id="nomeDiretor"></span><br> Gestor escolar</p>
                     
                 </div>
             </div>
