@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerar Documento</title>
+    <script>
+        window.onload = ()=>{
+            var nomeEscola = "ESCOLA";
+            var nomeCidadeEstado = "CIDADE";
+            var nomeDiretor = "DIRETOR";
+            var nomeGestor = "GESTOR";
+            
+            document.getElementById('nomeEscola1').innerHTML = nomeEscola;
+            document.getElementById('nomeEscola2').innerHTML = nomeEscola;
+            document.getElementById('nomeEscola3').innerHTML = nomeEscola;
+            document.getElementById('nomeCidadeEstado').innerHTML = nomeCidadeEstado;
+            document.getElementById('nomeDiretor').innerHTML = nomeDiretor;
+            document.getElementById('nomeGestor').innerHTML = nomeGestor;
+        }
+    </script>
+    <style>
+        .Grupo1{text-align: center;}
+        .Grupo2{text-align: center;}
+        .Grupo3{text-align: center;}
+        .Grupo4{text-align: right;}
+        .Grupo5{text-align: center; display: flex; flex-direction: column;}
+
+        @media print {
+            .noPrint{display: none;}
+        }
+    </style>
+</head>
+<body style="height: 100vh; display: flex; justify-content: space-around; flex-direction: column;">
+    <div class="Grupo1">
+        <p>SECRETARIA DE ESTADO DA EDUCAÇÃO E DA CIÊNCIA E TECNOLOGIA</p>
+        <p>5ª GERÊNCIA REGIONAL DE EDUCAÇÃO</p>
+        <span id="nomeEscola1"></span>
+    </div>
+    <div class="Grupo2">
+        <p>DECLARAÇÃO DE VÍNCULO ESCOLAR</p>
+    </div>
+    <div class="Grupo3">
+        <p>Declaramos para os devidos fins que se fizerem necessários, que <span id="nomeEscola2"></span>, é estudante regularmente matriculado na Rede Estadual de Ensino, na escola <span id="nomeEscola3"></span>, para o ano letivo de 2022. </p>
+    </div>
+    <div class="Grupo4">
+        <p><span id="nomeCidadeEstado"></span>, 07(variar a data entre os dias 07 e 11) de março de 2022</p>
+    </div>
+    <div class="Grupo5">
+        <span id="nomeDiretor"></span>
+        <span id="nomeGestor"></span>
+    </div>
+</body>
+</html>
