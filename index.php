@@ -1,5 +1,7 @@
 <?php
 
+error_reporting(E_ERROR | E_PARSE);
+
 session_start();
 define('HOST', '186.202.152.92');
 define('USUARIO', 'dceunicir');
@@ -24,7 +26,7 @@ if($_SESSION['contador'] <= $total){
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title><span id="nomeAluno"></span></title>
+            <title><?php echo$aluno['NOME'] ?></title>
             <script>
                 window.onload = ()=>{
                     var nomeEscola = "<?php echo$aluno['ESCOLA']  ?>";
