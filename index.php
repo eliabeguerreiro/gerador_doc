@@ -58,7 +58,7 @@ if($_SESSION['contador'] <= $total){
         <body style="height: 100vh; display: flex; justify-content: space-around; flex-direction: column;">
             <div class="Grupo1">
                 <p>SECRETARIA DE ESTADO DA EDUCAÇÃO E DA CIÊNCIA E TECNOLOGIA</p>
-                <p>5ª GERÊNCIA REGIONAL DE EDUCAÇÃO</p>
+                <p><span id="nomeGestor"></span>ª GERÊNCIA REGIONAL DE EDUCAÇÃO</p>
                 <span id="nomeEscola1"></span>
             </div>
             <div class="Grupo2">
@@ -71,8 +71,8 @@ if($_SESSION['contador'] <= $total){
                 <p><span id="nomeCidadeEstado"></span>-PB, 0<span id="nomeDia"></p><p> de março de 2022</p>
             </div>
             <div class="Grupo5">
-                <p>Direção de <span id="nomeDiretor"></span></p>
-                <p><span id="nomeGestor"></span>º Gerencia </p>
+                <p>Direção<br> <span id="nomeDiretor"></span></p>
+                
             </div>
 
         <div>
