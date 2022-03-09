@@ -26,6 +26,9 @@ if($_SESSION['contador'] <= $total){
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
+            <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
             <title><?php echo$aluno['NOME'] ?></title>
             <script>
                 window.onload = ()=>{
@@ -56,25 +59,70 @@ if($_SESSION['contador'] <= $total){
                     .noPrint{display: none;}
                 }
             </style>
-        </head>
-        <body style="height: 100vh; display: flex; justify-content: space-around; flex-direction: column;">
-            <div class="Grupo1">
-                <p>SECRETARIA DE ESTADO DA EDUCAÇÃO E DA CIÊNCIA E TECNOLOGIA</p>
-                <p><span id="nomeGestor"></span>ª GERÊNCIA REGIONAL DE EDUCAÇÃO</p>
-                <span id="nomeEscola1"></span>
-            </div>
-            <div class="Grupo2">
-                <p>DECLARAÇÃO DE VÍNCULO ESCOLAR</p>
-            </div>
-            <div class="Grupo3">
-                <p>Declaramos para os devidos fins que se fizerem necessários, que <span id="nomeAluno"></span>, é estudante regularmente matriculado na Rede Estadual de Ensino, na escola <span id="nomeEscola3"></span>, para o ano letivo de 2022. </p>
-            </div>
-            <div class="Grupo4">
-                <p><span id="nomeCidadeEstado"></span>-PB, 0<span id="nomeDia"></p><p> de março de 2022</p>
-            </div>
-            <div class="Grupo5">
-                <p>Direção<br> <span id="nomeDiretor"></span></p>
+            <script>
+   
+            function getPDF(){
+                $("#downloadbtn").hide();
+                $("#genmsg").show();
+                var HTML_Width = 2480;
+                var HTML_Height = 3508;
+                var top_left_margin = 15;
+                var PDF_Width = HTML_Width+(top_left_margin*2);
+                var PDF_Height = (PDF_Width*1.2);
+                var canvas_image_width = 2480;
+                var canvas_image_height = 2920;
                 
+                var totalPDFPages = 0;
+                
+
+                html2canvas($(".canvas_div_pdf")[0],{allowTaint:true}).then(function(canvas) {
+                    canvas.getContext('2d');
+                    
+                    console.log(canvas.height+"  "+canvas.width);
+                    
+                    
+                    var imgData = canvas.toDataURL("image/jpeg", 1.0);
+                    var pdf = new jsPDF('p', 'pt', [PDF_Width, PDF_Height]);
+                    pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin,canvas_image_width,canvas_image_height);
+                    
+                    
+                    for (var i = 1; i <= totalPDFPages; i++) { 
+                        pdf.addPage(PDF_Width, PDF_Height);
+                        pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height*i)+(top_left_margin*4),canvas_image_width,canvas_image_height);
+                    }
+                    
+                    pdf.save("DECLARAÇÃO DE <?php echo$aluno['NOME']?>");
+                    
+                    setTimeout(function(){ 			
+                        $("#downloadbtn").show();
+                        $("#genmsg").hide();
+                    }, 0);
+
+                });
+            };
+
+            </script>
+        </head>
+        <body style="display: flex;flex-direction: column;align-items: center;">
+            <div style="width: 57%; height: 95vh; display: flex; justify-content: space-around; aling-item: center; flex-direction: column;" class="canvas_div_pdf">
+                <div class="Grupo1">
+                    <p>SECRETARIA DE ESTADO DA EDUCAÇÃO E DA CIÊNCIA E TECNOLOGIA</p>
+                    <p><span id="nomeGestor"></span>ª GERÊNCIA REGIONAL DE EDUCAÇÃO</p>
+                    <span id="nomeEscola1"></span>
+                </div>
+                <div class="Grupo2">
+                    <p>DECLARAÇÃO DE VÍNCULO ESCOLAR</p>
+                </div>
+                <div class="Grupo3">
+                    <p>Declaramos para os devidos fins que se fizerem necessários, que <span id="nomeAluno"></span>, é estudante regularmente matriculado na Rede Estadual de Ensino, na escola <span id="nomeEscola3"></span>, para o ano letivo de 2022. </p>
+                </div>
+                <div class="Grupo4">
+                    <p><span id="nomeCidadeEstado"></span>-PB, 0<span id="nomeDia"></span> de março de 2022</p>
+                </div>
+                <div class="Grupo5">
+                    <p>Direção<br> <span id="nomeDiretor"></span></p>
+                    
+                </div>
             </div>
 
         <div>
@@ -83,6 +131,9 @@ if($_SESSION['contador'] <= $total){
         
 
         <button><a href="index.php?a=a">Anterior </a></button>
+
+
+        <button onclick="getPDF()" id="downloadbtn">Download PDF</button>
         
         </div>
 
