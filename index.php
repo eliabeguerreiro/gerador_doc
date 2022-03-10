@@ -57,11 +57,12 @@ if($_SESSION['contador'] <= $total){
                     margin-top: 0;
                     margin-bottom: 0;
                 }
+
                 .Grupo1{text-align: center;}
-                .Grupo2{text-align: center;}
-                .Grupo3{text-align: center;}
-                .Grupo4{text-align: right;}
-                .Grupo5{text-align: center; display: flex; flex-direction: column;}
+                .Grupo2{text-align: center; margin-top: -10px}
+                .Grupo3{text-align: center; margin-top: -10px}
+                .Grupo4{text-align: right; margin-top: -10px}
+                .Grupo5{text-align: center; display: flex; flex-direction: column; margin-top: -10px}
         
                 @media print {
                     .noPrint{display: none;}
@@ -75,8 +76,8 @@ if($_SESSION['contador'] <= $total){
                 var HTML_Width =  690;
                 var HTML_Height = 930;
                 var top_left_margin = 35;
-                var PDF_Width = HTML_Width+(top_left_margin*2);
-                var PDF_Height = (PDF_Width*1.2)+(top_left_margin*2);
+                var PDF_Width = HTML_Width+(top_left_margin*3.25);
+                var PDF_Height = (top_left_margin*1)+(PDF_Width*1.35)+(top_left_margin*1);
                 var canvas_image_width = HTML_Width;
                 var canvas_image_height = HTML_Height;
                 
@@ -112,9 +113,9 @@ if($_SESSION['contador'] <= $total){
             </script>
         </head>
         <body style="display: flex;flex-direction: column;align-items: center;">
-            <div style="width: 690px; height: 920px; display: flex; justify-content: space-around; aling-item: center; flex-direction: column;" class="canvas_div_pdf">
+            <div style="width: 690px; height: 920px; display: flex; justify-content: space-between; flex-direction: column; padding-left: 40px" class="canvas_div_pdf">
                 <div class="Grupo1">
-                    <img src="./imgParaiba.png" width="450px" height="auto" alt="header">
+                    <img src="./imgParaiba.png" width="350px" height="auto" alt="header">
                     <p>SECRETARIA DE ESTADO DA EDUCAÇÃO E DA CIÊNCIA E TECNOLOGIA</p>
                     <p><span id="nomeGestor"></span>ª GERÊNCIA REGIONAL DE EDUCAÇÃO</p>
                     <span style="color: red" id="nomeEscola1"></span>
