@@ -55,15 +55,16 @@ if($_SESSION['contador'] <= $total){
                     font-weight: 700;
 
                     margin-top: 0;
-                    margin-bottom: 0;
+                    margin-bottom: 2.5px;
                 }
 
                 .Grupo1{text-align: center;}
-                .Grupo2{text-align: center; margin-top: -10px}
-                .Grupo3{text-align: center; margin-top: -10px}
-                .Grupo4{text-align: right; margin-top: -10px}
-                .Grupo5{text-align: center; display: flex; flex-direction: column; margin-top: -10px}
-        
+                .Grupo2{text-align: center; margin-top: 110px}
+                .Grupo3{text-align: center; margin-top: 110px}
+                .Grupo4{text-align: right; margin-top: 110px}
+                .Grupo5{text-align: center; display: flex; flex-direction: column; margin-top: 110px}
+                .Grupo6{height: 100%; background-color: white;}
+                
                 @media print {
                     .noPrint{display: none;}
                 }
@@ -113,7 +114,7 @@ if($_SESSION['contador'] <= $total){
             </script>
         </head>
         <body style="display: flex;flex-direction: column;align-items: center;">
-            <div style="width: 690px; height: 920px; display: flex; justify-content: space-between; flex-direction: column; padding-left: 40px" class="canvas_div_pdf">
+            <div style="width: 690px; height: 920px; display: flex; flex-direction: column; padding-left: 40px" class="canvas_div_pdf">
                 <div class="Grupo1">
                     <img src="./imgParaiba.png" width="350px" height="auto" alt="header">
                     <p>SECRETARIA DE ESTADO DA EDUCAÇÃO E DA CIÊNCIA E TECNOLOGIA</p>
@@ -132,6 +133,8 @@ if($_SESSION['contador'] <= $total){
                 <div class="Grupo5">
                     <p> <span style="color: red" id="nomeDiretor"></span><br> Gestor escolar</p>
                     
+                </div>
+                <div class="Grupo6" style="margin-bottom: 0">
                 </div>
             </div>
 
