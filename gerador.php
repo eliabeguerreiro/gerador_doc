@@ -10,6 +10,15 @@ $conn = mysqli_connect(HOST, USUARIO, SENHA, DB) or die ('Não foi possível con
 
 $total = 945;
 
+
+if($_POST){
+
+$_SESSION['contador'] = $_POST['numero'];  
+    
+}
+
+
+
 if($_SESSION['contador'] <= $total){
 
     $sql = "SELECT * FROM alunos WHERE ID = ".$_SESSION['contador']."";
@@ -113,6 +122,25 @@ if($_SESSION['contador'] <= $total){
             </script>
         </head>
         <body style="display: flex;flex-direction: column;align-items: center;">
+
+            <div>
+                <form action="" method="post">
+                    <label for="numero">Digite o numero da declaração:</label>
+                    <input name="numero" type="number" placeholder="numero aqui">
+                    <button type='submit'>Só vai mano</button>
+                </form>
+            </div>
+
+            <div>
+        
+        <button><a href="gerador.php?a=a">Anterior </a></button>
+        <button><a href="gerador.php?p=p">Proxima </a></button>
+        
+        <button onclick="getPDF()" id="downloadbtn">Download PDF</button>
+        
+        </div>
+
+
             <div style="width: 690px; height: 920px; display: flex; flex-direction: column; padding-left: 40px" class="canvas_div_pdf">
                 <div class="Grupo1">
                     <img src="./imgParaiba.png" width="350px" height="auto" alt="header">
@@ -137,14 +165,7 @@ if($_SESSION['contador'] <= $total){
                 </div>
             </div>
 
-        <div>
         
-        <button><a href="gerador.php?a=a">Anterior </a></button>
-        <button><a href="gerador.php?p=p">Proxima </a></button>
-        
-        <button onclick="getPDF()" id="downloadbtn">Download PDF</button>
-        
-        </div>
 
         </body>
         </html>
