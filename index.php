@@ -4,3 +4,5 @@ $_SESSION['contador'] = 1;
 ?>
 
 <a href="gerador.php">CLIQUE AQUI</a>
+
+<a href="dec/">outro</a>

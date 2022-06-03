@@ -21,14 +21,38 @@ $_SESSION['contador'] = $_POST['numero'];
 
 if($_SESSION['contador'] <= $total){
 
-    $sql = "SELECT * FROM alunos WHERE ID = ".$_SESSION['contador']."";
+    $sql = "SELECT * FROM listacsv WHERE ID = ".$_SESSION['contador']."";
     $query_aluno = mysqli_query($conn, $sql);
 
     while($aluno = mysqli_fetch_assoc($query_aluno)){
 
+        
+        var_dump($aluno);
+
+
+
+
+
+
     ?>
-    
+
+        
         <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+        </head>
+        <body>
+        <?php
+
+            var_dump($aluno);
+
+        ?>
+        </body>
+        </html>
+
+    
+        <!--DOCTYPE html>
         <html lang="en">
         <head>
             <meta charset="UTF-8">
@@ -168,7 +192,7 @@ if($_SESSION['contador'] <= $total){
         
 
         </body>
-        </html>
+        </html-->
 
     <?php
 
